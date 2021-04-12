@@ -106,8 +106,8 @@ def test_localization_handling():
         'street_address': 'P.O Box 1234'})
     assert address['country_area'] == 'إمارة دبيّ'
     assert address['city'] == ''
-    assert address['postal_code'] == ''
-    assert address['sorting_code'] == ''
+    assert address['postal_code'] == '123456'
+    assert address['sorting_code'] == '654321'
 
 
 def test_address_formatting():
@@ -124,6 +124,24 @@ def test_address_formatting():
         '云南省临沧市凤庆县\n'
         '中关村东路1号\n'
         'CHINA')
+
+
+def test_address_formatting_ro():
+    address = {
+        'country_code': 'RO',
+        'company_name': 'Sagital',
+        'country_area': 'Vâlcea',
+        'postal_code': '123455',
+        'city': 'Foleștii de Jos',
+        'city_area': 'Tomșani',
+        'street_address': 'Ogrăzele nr. 1'}
+    result = format_address(address, latin=False)
+    assert result == (
+        'Sagital\n'
+        'Ogrăzele nr. 1\n'
+        'Foleștii de Jos, Vâlcea 123455\n'
+        'ROMANIA')
+
 
 
 def test_capitalization():

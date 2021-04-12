@@ -1,6 +1,6 @@
 {
   "RO": {
-    "fmt": "%N%n%O%n%A%n %C, %D%S %Z",
+    "fmt": "%N%n%O%n%A%n %C, %S %Z",
     "id": "data/RO",
     "key": "RO",
     "name": "ROMANIA",

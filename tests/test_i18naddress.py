@@ -125,7 +125,7 @@ def test_validation_india():
 def test_validation_rules_switzerland():
     validation_data = get_validation_rules({'country_code': 'CH'})
     assert validation_data.allowed_fields == {
-        'company_name', 'city', 'postal_code', 'street_address', 'name'}
+        'company_name', 'city', 'postal_code', 'street_address', 'name', 'city_area', 'sorting_code', 'country_area'}
     assert validation_data.required_fields == {
         'city', 'postal_code', 'street_address'}
 

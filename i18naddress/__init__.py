@@ -207,8 +207,7 @@ def get_validation_rules(address):
     country_name = country_data.get("name", "")
     address_format = country_data["fmt"]
     address_latin_format = country_data.get("lfmt", address_format)
-    format_fields = re.finditer(r"%([ACDNOSXZ])", address_format)
-    allowed_fields = {FIELD_MAPPING[m.group(1)] for m in format_fields}
+    allowed_fields = {FIELD_MAPPING[f] for f in "ACDNOSXZ"}
     required_fields = {FIELD_MAPPING[f] for f in country_data["require"]}
     upper_fields = {FIELD_MAPPING[f] for f in country_data["upper"]}
     languages = [None]
